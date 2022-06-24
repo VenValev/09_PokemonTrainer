@@ -141,6 +141,11 @@ namespace DefiningClasses
                     }
                 }
             }
+
+            foreach(Trainer t in trainersList)
+            {
+                Console.WriteLine($"Name : {t.Name} Badges: {t.NumberOfBadges} Pokemons: {t.PokemonCollection.Count}");
+            }
         }
     }
 }
