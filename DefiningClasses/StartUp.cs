@@ -68,6 +68,7 @@ namespace DefiningClasses
                         else
                         {
                             List<Pokemon> removingPokemons = new List<Pokemon>();
+
                             foreach (Pokemon p in tr.PokemonCollection)
                             {
                                 p.Health -= 10;
@@ -76,6 +77,7 @@ namespace DefiningClasses
                                     tr.PokemonCollection.Remove(p);
                                 }*/
                             }
+
                             tr.PokemonCollection.RemoveAll(h => h.Health <= 0);
 
                         }
@@ -102,6 +104,7 @@ namespace DefiningClasses
                         else
                         {
                             List<Pokemon> removingPokemons = new List<Pokemon>();
+
                             foreach (Pokemon p in tr.PokemonCollection)
                             {
                                 p.Health -= 10;
@@ -110,6 +113,7 @@ namespace DefiningClasses
                                     tr.PokemonCollection.Remove(p);
                                 }*/
                             }
+
                             tr.PokemonCollection.RemoveAll(h => h.Health <= 0);
 
                         }
@@ -136,6 +140,7 @@ namespace DefiningClasses
                         else
                         {
                             List<Pokemon> removingPokemons = new List<Pokemon>();
+
                             foreach (Pokemon p in tr.PokemonCollection)
                             {
                                 p.Health -= 10;
@@ -144,6 +149,7 @@ namespace DefiningClasses
                                     tr.PokemonCollection.Remove(p);
                                 }*/
                             }
+
                             tr.PokemonCollection.RemoveAll(h => h.Health <= 0);
                             
                         }
@@ -151,9 +157,13 @@ namespace DefiningClasses
                 }
             }
 
-            foreach(Trainer t in trainersList)
+            List<Trainer> sortedTrainers = trainersList.OrderByDescending(x => x.NumberOfBadges).ToList();
+
+
+            foreach(Trainer t in sortedTrainers)
             {
-                Console.WriteLine($"Name : {t.Name} Badges: {t.NumberOfBadges} Pokemons: {t.PokemonCollection.Count}");
+                //Console.WriteLine($"Name : {t.Name} Badges: {t.NumberOfBadges} Pokemons: {t.PokemonCollection.Count}");
+                Console.WriteLine($"{t.Name} {t.NumberOfBadges} {t.PokemonCollection.Count}");
             }
         }
     }
