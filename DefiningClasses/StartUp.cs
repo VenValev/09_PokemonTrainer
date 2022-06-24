@@ -17,6 +17,13 @@ namespace DefiningClasses
                 Trainer currentTrainer = new Trainer(cmnd[0], 0);
                 currentTrainer.PokemonCollection.Add(currentPokemon);
             }
+
+            string commands;
+
+            while((commands = Console.ReadLine()) != "End")
+            {
+
+            }
         }
     }
 }
