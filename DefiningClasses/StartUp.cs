@@ -11,6 +11,8 @@ namespace DefiningClasses
             string text;
             List<Trainer> trainersList = new List<Trainer>();
 
+            // Filling the pokemons
+
             while((text = Console.ReadLine()) != "Tournament")
             {
                 bool isfound = false;
@@ -45,7 +47,18 @@ namespace DefiningClasses
 
             while((commands = Console.ReadLine()) != "End")
             {
+                if(commands == "Fire")
+                {
 
+                }
+                else if(commands == "Water")
+                {
+
+                }
+                else if(commands == "Electricity")
+                {
+
+                }
             }
         }
     }
