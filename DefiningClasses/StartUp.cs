@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DefiningClasses
 {
@@ -7,15 +9,36 @@ namespace DefiningClasses
         static void Main(string[] args)
         {
             string text;
+            List<Trainer> trainersList = new List<Trainer>();
 
             while((text = Console.ReadLine()) != "Tournament")
             {
+                bool isfound = false;
                 string[] cmnd = text.Split(' ', StringSplitOptions.RemoveEmptyEntries);
                 
                 Pokemon currentPokemon = new Pokemon(cmnd[1], cmnd[2], int.Parse(cmnd[3]));
 
                 Trainer currentTrainer = new Trainer(cmnd[0], 0);
-                currentTrainer.PokemonCollection.Add(currentPokemon);
+                
+                foreach(Trainer t in trainersList)
+                {
+                    if(t.Name == currentTrainer.Name)
+                    {
+                        t.PokemonCollection.Add(currentPokemon);
+                        isfound = true;
+                        break;
+                    }
+                }
+
+                if(isfound)
+                {
+                    continue;
+                }
+                else
+                {
+                    currentTrainer.PokemonCollection.Add(currentPokemon);
+                    trainersList.Add(currentTrainer);
+                }
             }
 
             string commands;
