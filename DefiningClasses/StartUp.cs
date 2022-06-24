@@ -49,32 +49,35 @@ namespace DefiningClasses
             {
                 if(commands == "Fire")
                 {
-                    foreach(Trainer tr in trainersList)
+                    foreach (Trainer tr in trainersList)
                     {
                         bool isFound = false;
 
                         foreach (Pokemon p in tr.PokemonCollection)
                         {
-                            if(p.Element == commands)
+                            if (p.Element == commands)
                             {
                                 isFound = true;
                                 break;
                             }
                         }
-                        if(isFound)
+                        if (isFound)
                         {
                             tr.NumberOfBadges++;
                         }
                         else
                         {
-                            foreach(Pokemon p in tr.PokemonCollection)
+                            List<Pokemon> removingPokemons = new List<Pokemon>();
+                            foreach (Pokemon p in tr.PokemonCollection)
                             {
                                 p.Health -= 10;
-                                if(p.Health <=0)
+                                /*if (p.Health <= 0)
                                 {
                                     tr.PokemonCollection.Remove(p);
-                                }
+                                }*/
                             }
+                            tr.PokemonCollection.RemoveAll(h => h.Health <= 0);
+
                         }
                     }
                 }
@@ -98,14 +101,17 @@ namespace DefiningClasses
                         }
                         else
                         {
+                            List<Pokemon> removingPokemons = new List<Pokemon>();
                             foreach (Pokemon p in tr.PokemonCollection)
                             {
                                 p.Health -= 10;
-                                if (p.Health <= 0)
+                                /*if (p.Health <= 0)
                                 {
                                     tr.PokemonCollection.Remove(p);
-                                }
+                                }*/
                             }
+                            tr.PokemonCollection.RemoveAll(h => h.Health <= 0);
+
                         }
                     }
                 }
@@ -129,14 +135,17 @@ namespace DefiningClasses
                         }
                         else
                         {
+                            List<Pokemon> removingPokemons = new List<Pokemon>();
                             foreach (Pokemon p in tr.PokemonCollection)
                             {
                                 p.Health -= 10;
-                                if (p.Health <= 0)
+                                /*if (p.Health <= 0)
                                 {
                                     tr.PokemonCollection.Remove(p);
-                                }
+                                }*/
                             }
+                            tr.PokemonCollection.RemoveAll(h => h.Health <= 0);
+                            
                         }
                     }
                 }
