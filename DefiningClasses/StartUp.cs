@@ -49,16 +49,29 @@ namespace DefiningClasses
             {
                 if(commands == "Fire")
                 {
-                    bool isFound = false;
+                    
 
                     foreach(Trainer tr in trainersList)
                     {
-                        foreach(Pokemon p in tr.PokemonCollection)
+                        bool isFound = false;
+
+                        foreach (Pokemon p in tr.PokemonCollection)
                         {
                             if(p.Element == commands)
                             {
                                 isFound = true;
                                 break;
+                            }
+                        }
+                        if(isFound)
+                        {
+                            tr.NumberOfBadges++;
+                        }
+                        else
+                        {
+                            foreach(Pokemon p in tr.PokemonCollection)
+                            {
+                                p.Health -= 10;
                             }
                         }
                     }
