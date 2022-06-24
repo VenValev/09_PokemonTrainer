@@ -8,13 +8,17 @@ namespace DefiningClasses
     {
         private string name;
         private int numberOfBadges;
-        List<Pokemon> pokemonCollection;
+        List<Pokemon> pokemonCollection = new List<Pokemon>();
 
-        public Trainer()
+        
+
+        public Trainer (string name, int numberOfBadges)
         {
-            numberOfBadges = 0;
-            pokemonCollection = new List<Pokemon>();
+            Name = name;
+            NumberOfBadges = numberOfBadges;
+            PokemonCollection = new List<Pokemon>();
         }
+
         public string Name { get; set; }
         public int NumberOfBadges { get; set; }
         public List<Pokemon> PokemonCollection { get; set; }
