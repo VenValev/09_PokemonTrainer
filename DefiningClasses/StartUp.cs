@@ -49,8 +49,6 @@ namespace DefiningClasses
             {
                 if(commands == "Fire")
                 {
-                    
-
                     foreach(Trainer tr in trainersList)
                     {
                         bool isFound = false;
@@ -72,17 +70,75 @@ namespace DefiningClasses
                             foreach(Pokemon p in tr.PokemonCollection)
                             {
                                 p.Health -= 10;
+                                if(p.Health <=0)
+                                {
+                                    tr.PokemonCollection.Remove(p);
+                                }
                             }
                         }
                     }
                 }
                 else if(commands == "Water")
                 {
+                    foreach (Trainer tr in trainersList)
+                    {
+                        bool isFound = false;
 
+                        foreach (Pokemon p in tr.PokemonCollection)
+                        {
+                            if (p.Element == commands)
+                            {
+                                isFound = true;
+                                break;
+                            }
+                        }
+                        if (isFound)
+                        {
+                            tr.NumberOfBadges++;
+                        }
+                        else
+                        {
+                            foreach (Pokemon p in tr.PokemonCollection)
+                            {
+                                p.Health -= 10;
+                                if (p.Health <= 0)
+                                {
+                                    tr.PokemonCollection.Remove(p);
+                                }
+                            }
+                        }
+                    }
                 }
                 else if(commands == "Electricity")
                 {
+                    foreach (Trainer tr in trainersList)
+                    {
+                        bool isFound = false;
 
+                        foreach (Pokemon p in tr.PokemonCollection)
+                        {
+                            if (p.Element == commands)
+                            {
+                                isFound = true;
+                                break;
+                            }
+                        }
+                        if (isFound)
+                        {
+                            tr.NumberOfBadges++;
+                        }
+                        else
+                        {
+                            foreach (Pokemon p in tr.PokemonCollection)
+                            {
+                                p.Health -= 10;
+                                if (p.Health <= 0)
+                                {
+                                    tr.PokemonCollection.Remove(p);
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
