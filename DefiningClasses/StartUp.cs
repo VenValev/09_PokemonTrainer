@@ -49,7 +49,19 @@ namespace DefiningClasses
             {
                 if(commands == "Fire")
                 {
+                    bool isFound = false;
 
+                    foreach(Trainer tr in trainersList)
+                    {
+                        foreach(Pokemon p in tr.PokemonCollection)
+                        {
+                            if(p.Element == commands)
+                            {
+                                isFound = true;
+                                break;
+                            }
+                        }
+                    }
                 }
                 else if(commands == "Water")
                 {
