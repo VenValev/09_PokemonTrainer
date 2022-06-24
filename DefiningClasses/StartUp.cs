@@ -6,7 +6,13 @@ namespace DefiningClasses
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string text;
+
+            while((text = Console.ReadLine()) != "Tournament")
+            {
+                string[] cmnd = text.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+            }
         }
     }
 }
